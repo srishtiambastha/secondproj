@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<style>
+body
+{
+	background-image: url(image/img9.jpg);
+}
+
+</style>
+
+
+</head>
+<body>
+<h1>Posted Jobs</h1>
+<table class="table table-striped">
+<tr>
+<th>TITLE</th>
+<th>Description</th>
+<th>SkillsRequired</th>
+<th>salary</th>
+<th>posted on</th>
+<th>location</th>
+
+</tr>
+<tr ng-repeat="j in jobs">
+<td>{{j.jobTitle}}</td>
+<td>{{j.jobDescription}}</td>
+<td>{{j.skillsRequired}}</td>
+<td>{{j.salary}}</td>
+<td>{{j.PostedOn}}</td>
+<td>{{j.location}}</td>
+
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head >
+<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet"  />
+<style>
+.circle {
+    border-radius: 50%/50%; 
+    width: 50px;
+    height: 50px;
+    background: white;
+}
+body {
+    background-image: url("image/i2.jpg");
+}
+
+</style>
+</head>
+<body ng-app="myApp">
+<nav class="navbar navbar-inverse"  >
+
+		<div class="container">
+		
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+					
+				</button>
+				
+				<ul class="nav navbar-nav">
+					<li><img src="image/logo.png"  class="circle" width="10%" height="10%"></li>
+					<li><a class="navbar-brand" href="#/home">COFFEE BREAK</a></li>
+				</ul>
+				
+				
+			</div>
+
+			<div id="navbar-collapse" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					
+					<li><a  class="icon-home" href="#/home">Home</a></li>
+					<li><a class="icon-envelope " href="#/login" ng-hide="currentUser.id">Login</a></li>
+			        <li><a href="#/register" ng-hide="currentUser.id">Register</a></li>
+<!-- 		 <li><a href="#/listOfUsers">List Of Users</a></li> -->
+			</ul>
+			<ul class="nav navbar-nav">
+				<li class="dropdown" >
+<a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.id">
+                     Job details<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/getAllJobs"> View Job Details</a></li>
+							<li><a href="#/postJob"  ng-show="currentUser.role=='ADMIN' || currentUser.role=='EMPLOYEE'">Post Job</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav">
+			     <li  ng-show="currentUser.id">
+						<a href="#/uploadPicture" >Upload Picture</a>
+					</li>
+				</ul>
+				
+						<!-- Friends Module -->
+<ul class="nav navbar-nav">
+<li class="dropdown" ng-show="currentUser.id">
+<a href="" class="dropdown-toggle" data-toggle="dropdown" >Friends<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li><a href="#/listOfUsers"> View User Details</a></li>
+<li><a href="#/friendsList">List of Friends</a></li>
+<li><a href="#/pendingRequest">Pending Friends request</a></li>
+</ul>
+</li>
+</ul>
+<!-- Blog Module -->
+<ul class="nav navbar-nav">
+ <li class="dropdown" ng-show="currentUser.id">
+	<a href="" class="dropdown-toggle" data-toggle="dropdown" >Blog<b class="caret"></b></a>
+		<ul class="dropdown-menu">
+			<li><a href="#/getAllBlogs"> View All Blogs</a></li>
+			<li><a href="#/addPost">Add a new Post</a></li>
+		</ul>
+</li>
+</ul>
+<ul class="nav navbar-nav">
+<li ng-show="currentUser.id">
+<a href="#/chat">Chat</a></li>
+</ul>
+	
+				<ul class="nav navbar-nav navbar-right">
+				
+				
+					<li ng-show="currentUser.id">
+<!--  Change the URL according to  your project name -->
+						<a href=""><img src="image/{{currentUser.username}}"  class="circle" width="10%" height="10%" ></a></li>
+			
+		
+						
+				<li class="dropdown" >
+<a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.id">
+              welcome {{currentUser.username}}       <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="" ng-click="logout()"><button type="button" class="btn btn-warning"><span class="fa fa-sign-out">logout</span></button></a></li>
+							</ul>
+				</ul>
+			</div>
+		</div>
+	</nav>
+<div class="container">
+<div ng-view></div>
+
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-resource.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+<!-- 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script> -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="_user/usercontroller.js"></script>
+	<script type="text/javascript" src="_user/userservice.js"></script>
+	
+	<script type="text/javascript" src="_job/jobcontroller.js"></script>
+   <script type="text/javascript" src="_job/jobservice.js"></script>
+   
+	<script type="text/javascript" src="_friend/friendcontroller.js"></script>
+   <script type="text/javascript" src="_friend/friendservice.js"></script>
+	
+	<script type="text/javascript" src="_blog/blogservice.js"></script>
+	<script type="text/javascript" src="_blog/blogcontroller.js"></script>
+	<script type="text/javascript" src="_blog/blogdetailcontroller.js"></script>
+	
+	<script type="text/javascript" src="_chat/chatservice.js"></script>
+    <script type="text/javascript" src="_chat/chatcontroller.js"></script>
+    <script type="text/javascript" src="resources/js/sockjs.js"></script>
+    <script type="text/javascript" src="resources/js/stomp.js"></script>
+</body>
+</html>

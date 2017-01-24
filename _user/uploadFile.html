@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+
+
+
+<style>
+body
+{
+	background-image: url(image/im4.jpg);
+}
+
+
+</style>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+<div align="center">
+        <form method="post" action="http://localhost:8081/newbackend/doUpload" enctype="multipart/form-data">
+            <table border="0">
+                <tr>
+                    <td>Profile pic:</td>
+                    <td><input type="file" class="img-circle" name="fileUpload" width="304" height="236" /></td>
+                </tr>
+             
+                <tr>
+                    <td colspan="2" align="center"><input type="submit" value="Upload"  class="btn btn-warning"/></td>
+           			<td> <img src="cinqueterre.jpg" class="img-circle" width="304" height="236"/></td>
+                    
+                </tr>
+                
+                
+            </table>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

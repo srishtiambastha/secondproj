@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<style>
+body
+{
+	background-image: url(image/img9.jpg);
+}
+
+</style>
+
+
+</head>
+<body>
+<table class="table table-striped">
+<tr>
+<th>TITLE</th>
+<th>Description</th>
+<th>SkillsRequired</th>
+<th>Email</th>
+<th>Role</th>
+<th>Is Online</th>
+<th>Enabled</th>
+</tr>
+<tr ng-repeat="j in jobs">
+<td>{{j.jobTitle}}</td>
+<td>{{j.jobDescription}}</td>
+<td>{{j.skillsRequired}}</td>
+<td>{{j.salary}}</td>
+<td>{{j.PostedOn}}</td>
+<td>{{j.location}}</td>
+
+<td><a href="#/edit/{{u.id}}">Edit</a></td>
+<td><a href="" ng-click="deletePerson(u.id)" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-trash"></span></a></td>
+
+</tr>
+</table>
+</body>
+</html>
